@@ -1,4 +1,4 @@
-package com.mashibing.netty;
+package com.zab.netty;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.ByteBuf;
@@ -71,5 +71,11 @@ class ClientHandler extends ChannelInboundHandlerAdapter {
         } finally {
             ReferenceCountUtil.release(msg);
         }
+    }
+
+    @Override
+    public void exceptionCaught(ChannelHandlerContext channelHandlerContext, Throwable cause){
+        cause.printStackTrace();
+        channelHandlerContext.close();
     }
 }

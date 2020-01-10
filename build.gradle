@@ -2,10 +2,10 @@ plugins {
     id 'java'
 }
 
-group 'com.mashibing'
+group 'com.zab'
 version '1.0-SNAPSHOT'
 
-sourceCompatibility = 1.9
+sourceCompatibility = 1.8
 
 repositories {
     //mavenCentral()

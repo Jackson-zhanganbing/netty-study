@@ -1,4 +1,4 @@
-package com.mashibing.io.nio;
+package com.zab.io.nio;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -39,20 +39,6 @@ public class Server {
                 ServerSocketChannel ssc = (ServerSocketChannel) key.channel();
                 SocketChannel sc = ssc.accept();
                 sc.configureBlocking(false);
-                //new Client
-                //
-                //String hostIP = ((InetSocketAddress)sc.getRemoteAddress()).getHostString();
-
-			/*
-			log.info("client " + hostIP + " trying  to connect");
-			for(int i=0; i<clients.size(); i++) {
-				String clientHostIP = clients.get(i).clientAddress.getHostString();
-				if(hostIP.equals(clientHostIP)) {
-					log.info("this client has already connected! is he alvie " + clients.get(i).live);
-					sc.close();
-					return;
-				}
-			}*/
 
                 sc.register(key.selector(), SelectionKey.OP_READ );
             } catch (IOException e) {
